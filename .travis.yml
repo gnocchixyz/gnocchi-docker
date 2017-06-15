@@ -1,0 +1,14 @@
+services:
+  - docker
+
+script:
+  - docker-compose up --build
+
+notifications:
+  email: false
+  irc:
+    on_success: change
+    on_failure: always
+    skip_join: true
+    channels:
+      - "irc.freenode.org#gnocchi"

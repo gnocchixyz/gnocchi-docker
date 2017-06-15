@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  indexer:
+    image: postgres
+
+  storage:
+    image: redis
+
+  gnocchi-metricd:
+    image: gnocchi
+    environment:
+      POSTGRESQL_USER: postgres
+    build:
+      context: .
+    depends_on:
+      - indexer
+      - storage
+    volumes:
+      - metrics-volume:/var/lib/gnocchi
+    entrypoint: /run-gnocchi.sh metricd
+
+  gnocchi-api:
+    image: gnocchi
+    environment:
+      POSTGRESQL_USER: postgres
+    build:
+      context: .
+    ports:
+      - "8041:8041"
+    depends_on:
+      - indexer
+      - storage
+      - gnocchi-metricd
+    volumes:
+      - metrics-volume:/var/lib/gnocchi
+    entrypoint: /run-gnocchi.sh api
+
+volumes:
+  metrics-volume:
