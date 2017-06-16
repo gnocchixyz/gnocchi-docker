@@ -1,7 +1,8 @@
 FROM python:3.5-slim
 
 RUN apt-get update && apt-get install -y \
-    build-essential
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 ADD run-gnocchi.sh /
 RUN pip install -U gnocchi[file,redis,postgresql] uwsgi
