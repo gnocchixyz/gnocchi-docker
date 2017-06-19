@@ -12,7 +12,7 @@ services:
     environment:
       POSTGRESQL_USER: postgres
     build:
-      context: .
+      context: gnocchi
     depends_on:
       - indexer
       - storage
@@ -25,7 +25,7 @@ services:
     environment:
       POSTGRESQL_USER: postgres
     build:
-      context: .
+      context: gnocchi
     ports:
       - "8041:8041"
     depends_on:
