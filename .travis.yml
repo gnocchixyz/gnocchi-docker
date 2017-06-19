@@ -2,7 +2,7 @@ services:
   - docker
 
 script:
-  - docker build gnocchi
+  - docker-compose build
 
 notifications:
   email: false

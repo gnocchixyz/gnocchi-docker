@@ -36,5 +36,34 @@ services:
       - metrics-volume:/var/lib/gnocchi
     entrypoint: /run-gnocchi.sh api
 
+  grafana:
+    image: gnocchixyz/grafana
+    build:
+      context: grafana
+    environment:
+      # GF_INSTALL_PLUGINS: gnocchixyz-gnocchi-datasource
+      GF_SECURITY_ADMIN_PASSWORD: password
+      GF_GNOCCHI_ENDPOINT: http://gnocchi:8041
+    ports:
+      - "3000:3000"
+    depends_on:
+      - gnocchi-api
+    volumes:
+      - grafana-volume:/var/lib/grafana
+    links:
+      - "gnocchi-api:gnocchi"
+
+  fake-phy-host:
+    image: collectd
+    build:
+      context: collectd
+    environment:
+      COLLECTD_INTERVAL: 10
+    depends_on:
+      - gnocchi-api
+    links:
+      - "gnocchi-api:gnocchi"
+
 volumes:
   metrics-volume:
+  grafana-volume:
