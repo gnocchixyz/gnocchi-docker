@@ -5,7 +5,7 @@ exec >&2
 export COLLECTD_HOST=fake-phy-host-$(hostname -f)
 
 echo "collectd host: $COLLECTD_HOST"
-envtpl /etc/collectd/collectd.conf.tpl -o /etc/collectd/collectd.conf
+envtpl --keep-template /etc/collectd/collectd.conf.tpl
 
 echo "starting collectd"
 collectd -f &
