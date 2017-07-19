@@ -374,8 +374,8 @@
                     "current": {
                         "selected": true,
                         "tags": [],
-                        "text": "fake-phy-host-5defe979e0eb",
-                        "value": "fake-phy-host-5defe979e0eb"
+                        "text": "fake-phy-host",
+                        "value": "fake-phy-host"
                     },
                     "datasource": "Gnocchi",
                     "hide": 0,
@@ -385,23 +385,13 @@
                     "name": "server",
                     "options": [
                         {
-                            "selected": false,
-                            "text": "fake-phy-host-dfff565cf5ef",
-                            "value": "fake-phy-host-dfff565cf5ef"
-                        },
-                        {
-                            "selected": false,
-                            "text": "fake-phy-host-46a27da6c845",
-                            "value": "fake-phy-host-46a27da6c845"
-                        },
-                        {
                             "selected": true,
-                            "text": "fake-phy-host-5defe979e0eb",
-                            "value": "fake-phy-host-5defe979e0eb"
+                            "text": "fake-phy-host",
+                            "value": "fake-phy-host"
                         }
                     ],
                     "query": "resources(collectd, host, host like \"fake-%\")",
-                    "refresh": 0,
+                    "refresh": 1,
                     "regex": "",
                     "sort": 0,
                     "tagValuesQuery": "",
