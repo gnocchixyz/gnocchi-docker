@@ -7,6 +7,7 @@ RUN apt-get update -y && apt-get install -y \
     python-pip \
     libyaml-dev \
     build-essential \
+    curl \
     git \
     stress \
  && rm -rf /var/lib/apt/lists/*
