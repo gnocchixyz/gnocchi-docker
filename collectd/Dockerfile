@@ -1,4 +1,5 @@
 FROM ubuntu:xenial
+ARG package_name=collectd-gnocchi
 
 RUN apt-get update -y && apt-get install -y \
     collectd \
@@ -12,7 +13,7 @@ RUN apt-get update -y && apt-get install -y \
     stress \
  && rm -rf /var/lib/apt/lists/*
 
-RUN pip install envtpl collectd-gnocchi
+RUN pip install envtpl ${package_name}
 COPY collectd.conf.tpl /etc/collectd
 COPY run.sh /
 CMD /run.sh

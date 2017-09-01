@@ -13,6 +13,8 @@ services:
       POSTGRESQL_USER: postgres
     build:
       context: gnocchi
+      args:
+        package_name: "${GNOCCHI_PACKAGE_NAME:-gnocchi}"
     depends_on:
       - indexer
       - storage
@@ -26,6 +28,8 @@ services:
       POSTGRESQL_USER: postgres
     build:
       context: gnocchi
+      args:
+        package_name: "${GNOCCHI_PACKAGE_NAME:-gnocchi}"
     ports:
       - "8041:8041"
     depends_on:
@@ -41,9 +45,10 @@ services:
     build:
       context: grafana
     environment:
-      # GF_INSTALL_PLUGINS: gnocchixyz-gnocchi-datasource
-      GF_SECURITY_ADMIN_PASSWORD: password
-      GF_GNOCCHI_ENDPOINT: http://gnocchi:8041
+      - GRAFANA_PLUGIN_URL
+      # - GF_INSTALL_PLUGINS=gnocchixyz-gnocchi-datasource
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_GNOCCHI_ENDPOINT=http://gnocchi:8041
     ports:
       - "3000:3000"
     depends_on:
@@ -57,6 +62,8 @@ services:
     image: collectd
     build:
       context: collectd
+      args:
+        package_name: "${COLLECTD_GNOCCHI_PACKAGE_NAME:-collectd-gnocchi}"
     environment:
       COLLECTD_INTERVAL: 10
     depends_on:
