@@ -3,6 +3,9 @@ printf "[indexer]\nurl = postgresql://${POSTGRESQL_USER}:${POSTGRESQL_PASSWORD}@
 printf "[storage]\ncoordination_url = redis://:${REDIS_PASSWORD}@storage\n" >> /etc/gnocchi/gnocchi.conf
 printf "[incoming]\ndriver = redis\nredis_url = redis://:${REDIS_PASSWORD}@storage\n" >> /etc/gnocchi/gnocchi.conf
 
+# NOTE(sileht): To get Gnocchi version build log
+pip freeze | grep gnocchi
+
 gnocchi-upgrade || true
 
 case $1 in

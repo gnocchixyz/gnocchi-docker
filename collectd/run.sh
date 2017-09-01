@@ -1,6 +1,9 @@
 #!/bin/bash
 exec >&2
 
+# NOTE(sileht): To get collectd-gnocchi version in log
+pip freeze | grep collectd-gnocchi
+
 export COLLECTD_HOST=fake-phy-host-$(hostname -f)
 export OS_AUTH_TYPE=gnocchi-basic
 export GNOCCHI_USER=admin

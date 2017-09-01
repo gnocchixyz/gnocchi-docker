@@ -22,4 +22,14 @@ And it will start all those containers in the right order. Once started, you
 can point your browser at `http://<ip of docker>:3000` to access Grafana. The
 default username is "admin" and password is "password".
 
+Devel
+=====
+
+To run master branches of Gnocchi, collectd-gnocchi, grafana-gnocchi-datasource, run::
+
+  $ source devel.en
+  $ docker-compose build --no-cache --force-rm  # To force rebuild image from source
+  $ docker-compose up
+
+
 .. _Gnocchi: http://gnocchi.xyz
