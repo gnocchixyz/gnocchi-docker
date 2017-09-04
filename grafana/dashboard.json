@@ -307,7 +307,7 @@
                         "steppedLine": false,
                         "targets": [
                             {
-                                "aggregator": "mean",
+                                "aggregator": "rate:last",
                                 "granularity": "",
                                 "label": "$metric",
                                 "metric_name": "interface-eth0@if_octets.*",
