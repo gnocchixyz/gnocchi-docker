@@ -9,13 +9,16 @@ curl -v \
       -H "Content-Type: application/json" \
       ${GRAFANA_URL}/datasources
 
+if [ -z "$GNOCCHI_RATE_SUPPORT" ]; then
+    sed -i -e 's/"rate:last/"mean/g' /dashboard.json
+fi
+
 echo "Creating datasource..."
 curl -vv -# \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d @/datasource.json \
     ${GRAFANA_URL}/datasources
-
 
 echo "Creating dashboard..."
 curl -vv -# \

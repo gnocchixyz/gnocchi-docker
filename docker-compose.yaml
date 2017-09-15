@@ -45,6 +45,7 @@ services:
     build:
       context: grafana
     environment:
+      - GNOCCHI_RATE_SUPPORT
       - GRAFANA_PLUGIN_URL
       # - GF_INSTALL_PLUGINS=gnocchixyz-gnocchi-datasource
       - GF_SECURITY_ADMIN_PASSWORD=password
