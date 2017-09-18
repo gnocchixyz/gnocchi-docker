@@ -4,24 +4,25 @@ set -x
 set -e
 
 GRAFANA_URL="http://admin:${GF_SECURITY_ADMIN_PASSWORD}@grafana:3000/api"
-curl -v \
-      -H "Accept: application/json" \
-      -H "Content-Type: application/json" \
-      ${GRAFANA_URL}/datasources
-
-if [ -z "$GNOCCHI_RATE_SUPPORT" ]; then
-    sed -i -e 's/"rate:last/"mean/g' /dashboard.json
-fi
 
 echo "Creating datasource..."
-curl -vv -# \
+curl -v -# \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d @/datasource.json \
     ${GRAFANA_URL}/datasources
 
+if [ -z "$GNOCCHI_RATE_SUPPORT" ]; then
+    sed -i -e 's/"rate:last/"mean/g' /dashboard.json
+fi
+
 echo "Creating dashboard..."
-curl -vv -# \
+curl -v -# \
+    -X DELETE \
+    -H "Accept: application/json" \
+    ${GRAFANA_URL}/dashboards/db/system-metrics
+
+curl -v -# \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d @/dashboard.json \
