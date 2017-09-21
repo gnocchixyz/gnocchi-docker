@@ -4,7 +4,7 @@ set -e
 set -x
 
 : "${GF_PATHS_PLUGINS:=/var/lib/grafana/plugins}"
-mkdir -p ${GF_PATHS_PLUGINS}
+mkdir -p ${GF_PATHS_PLUGINS}/gnocchixyz-gnocchi-datasource
 
 if [ "${GRAFANA_PLUGIN_URL}" ]; then
     URL=${GRAFANA_PLUGIN_URL}
@@ -13,10 +13,9 @@ else
 fi
 curl -qL $URL -o  /gnocchixyz-gnocchi-datasource.tar.gz
 
-mkdir -p ${GF_PATHS_PLUGINS}/gnocchixyz-gnocchi-datasource
 source_tarball="$(tar -tf /gnocchixyz-gnocchi-datasource.tar.gz --show-transformed-names --strip-components=1 | grep '^dist' || true)"
 if [ -z "$source_tarball" ]; then
     tar -xf /gnocchixyz-gnocchi-datasource.tar.gz --show-transformed-names --strip-components=1 -C ${GF_PATHS_PLUGINS}/gnocchixyz-gnocchi-datasource
 else
-    tar -xf /gnocchixyz-gnocchi-datasource.tar.gz --show-transformed-names --strip-components=2 --wildcards */dist -C ${GF_PATHS_PLUGINS}/gnocchixyz-gnocchi-datasource
+    tar -xf /gnocchixyz-gnocchi-datasource.tar.gz --show-transformed-names --strip-components=2 -C ${GF_PATHS_PLUGINS}/gnocchixyz-gnocchi-datasource --wildcards '*/dist'
 fi
