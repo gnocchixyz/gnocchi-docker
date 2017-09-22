@@ -72,6 +72,17 @@ services:
     links:
       - "gnocchi-api:gnocchi"
 
+  prom:
+    image: prometheus
+    build:
+      context: prometheus
+    depends_on:
+      - gnocchi-api
+    ports:
+      - "9090:9090"
+    links:
+      - "gnocchi-api:gnocchi"
+
 volumes:
   metrics-volume:
   grafana-volume:
