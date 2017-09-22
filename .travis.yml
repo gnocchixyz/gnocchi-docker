@@ -2,6 +2,7 @@ services:
   - docker
 
 script:
+  - ./build-base-images.sh
   - docker-compose build
   - source devel.env
   - docker-compose build
