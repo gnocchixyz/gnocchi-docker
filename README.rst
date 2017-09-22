@@ -28,6 +28,7 @@ Devel
 To run master branches of Gnocchi, collectd-gnocchi, grafana-gnocchi-datasource, run::
 
   $ source devel.en
+  $ ./build-base-images.sh # Build base images (only once)
   $ docker-compose build --no-cache --force-rm  # To force rebuild image from source
   $ docker-compose up
 
