@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+remote_write:
+  - url: "http://gnocchi-api:8041/v1/prometheus"
+    basic_auth:
+      username: admin
+      password: password
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+    - targets: ['localhost:9090']
