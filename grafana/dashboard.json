@@ -115,8 +115,7 @@
                   }
                 ]
               ],
-              "tags": [],
-              "transform": ""
+              "tags": []
             }
           ],
           "thresholds": "",
@@ -197,8 +196,7 @@
               "queryMode": "resource_aggregation",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": "4,8,12",
@@ -280,8 +278,7 @@
               "queryMode": "resource_aggregation",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": "1,5,10",
@@ -601,8 +598,7 @@
               "queryMode": "resource_aggregation",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": "50,70,90",
@@ -682,8 +678,7 @@
               "queryMode": "resource_aggregation",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": "",
@@ -758,8 +753,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -844,8 +838,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -925,8 +918,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1101,8 +1093,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1345,8 +1336,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1426,8 +1416,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1601,8 +1590,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1682,8 +1670,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
@@ -1764,8 +1751,7 @@
               "queryMode": "resource_search",
               "refId": "A",
               "resource_search": "host in [[server]]",
-              "resource_type": "collectd",
-              "transform": ""
+              "resource_type": "collectd"
             }
           ],
           "thresholds": [],
