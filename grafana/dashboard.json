@@ -352,17 +352,21 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
               "label": "",
-              "metric_name": "aggregation-cpu-average@percent-idle-0",
+              "metric_name": "",
               "needed_overlap": 0,
-              "queryMode": "resource_aggregation",
+              "operations": "(- 100 (metric aggregation-cpu-average@percent-idle-0 mean))",
+              "queryMode": "dynamic_aggregates",
               "refId": "A",
               "resource_search": "host in [[server]]",
               "resource_type": "collectd"
+
             }
           ],
           "thresholds": "50,80,90",
-          "title": "CPU idle",
+          "title": "CPU usage",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
