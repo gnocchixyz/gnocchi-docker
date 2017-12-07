@@ -1,9 +1,50 @@
 {
-    "dashboard":
-{
+  "inputs": [
+    {
+      "name": "DS_GNOCCHI",
+      "label": "Gnocchi",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "gnocchixyz-gnocchi-datasource",
+      "pluginName": "Gnocchi"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "gnocchixyz-gnocchi-datasource",
+      "name": "Gnocchi",
+      "version": "1.6.0"
+    },
+    {
+      "type": "datasource",
+      "id": "gnocchixyz-gnocchi-datasource",
+      "name": "Gnocchi",
+      "version": "1.6.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "3.1.0"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": []
   },
+  "description": "System metrics collected by Collectd and stored in Gnocchi >= 4.1",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
@@ -25,7 +66,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "decimals": null,
           "format": "s",
           "gauge": {
@@ -140,7 +181,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "format": "none",
           "gauge": {
             "maxValue": 100,
@@ -221,7 +262,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "decimals": 0,
           "format": "none",
           "gauge": {
@@ -303,7 +344,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "format": "percent",
           "gauge": {
             "maxValue": 100,
@@ -362,7 +403,6 @@
               "refId": "A",
               "resource_search": "host in [[server]]",
               "resource_type": "collectd"
-
             }
           ],
           "thresholds": "50,80,90",
@@ -387,7 +427,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "format": "percent",
           "gauge": {
             "maxValue": 100,
@@ -467,7 +507,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "format": "percent",
           "gauge": {
             "maxValue": 100,
@@ -547,7 +587,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "decimals": null,
           "format": "percent",
           "gauge": {
@@ -597,6 +637,7 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "metric_name": "df-root@percent_bytes-used-0",
               "needed_overlap": 0,
               "queryMode": "resource_aggregation",
@@ -627,7 +668,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(50, 172, 45, 0.97)"
           ],
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "decimals": null,
           "format": "percent",
           "gauge": {
@@ -715,7 +756,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 11,
           "legend": {
@@ -750,6 +791,7 @@
             {
               "aggregator": "rate:last",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "granularity": "",
               "label": "$host - $metric",
               "metric_name": "interface-(bond|eth|vlan).*@if_octets-*",
@@ -801,7 +843,7 @@
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 12,
           "legend": {
@@ -836,6 +878,7 @@
             {
               "aggregator": "rate:last",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "label": "$host - $metric",
               "metric_name": "interface-(bond|eth|vlan).*@if_packets-*",
               "needed_overlap": 0,
@@ -886,7 +929,7 @@
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 13,
           "legend": {
@@ -916,6 +959,7 @@
             {
               "aggregator": "rate:last",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "label": "$host - $metric",
               "metric_name": "interface-(eth|bond|vlan).*@if_dropped-.*",
               "needed_overlap": 0,
@@ -966,7 +1010,7 @@
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 14,
           "legend": {
@@ -996,6 +1040,7 @@
             {
               "aggregator": "rate:last",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "label": "$host - $metric",
               "metric_name": "interface-(eth|bond|vlan).*@if_errors-.*",
               "needed_overlap": 0,
@@ -1058,7 +1103,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 0,
           "height": "",
           "id": 15,
@@ -1141,7 +1186,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "height": "",
           "id": 16,
@@ -1223,7 +1268,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "height": "",
           "id": 18,
@@ -1254,6 +1299,20 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
+              "label": "$host - total usage",
+              "needed_overlap": 0,
+              "operations": "(- 100 (metric aggregation-cpu-average@percent-idle-0 mean))",
+              "queryMode": "dynamic_aggregates",
+              "refId": "B",
+              "resource_search": "host in [[server]]",
+              "resource_type": "collectd"
+            },
+            {
+              "aggregator": "mean",
+              "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
               "label": "$host - $metric",
               "metric_name": "aggregation-cpu-average@percent-(idle|user|wait|system|softirq|steal)-0",
               "needed_overlap": 0,
@@ -1304,7 +1363,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 24,
           "legend": {
@@ -1384,7 +1443,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 19,
           "legend": {
@@ -1415,7 +1474,7 @@
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": false,
               "label": "$host - $metric",
-              "metric_name": "df-root@df_complex-(used|free)-0",
+              "metric_name": "df-(?!(proc|dev|sys|etc)).*@df_complex-(used|free)-0",
               "needed_overlap": 0,
               "queryMode": "resource_search",
               "refId": "A",
@@ -1464,7 +1523,7 @@
           "bars": true,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 20,
           "legend": {
@@ -1508,8 +1567,10 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
               "label": "$host - $metric",
-              "metric_name": "df-root@df_inodes-(used|free)-0",
+              "metric_name": "df-(?!(proc|dev|sys|etc)).*@df_inodes-(used|free)-0",
               "needed_overlap": 0,
               "queryMode": "resource_search",
               "refId": "A",
@@ -1558,7 +1619,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 21,
           "legend": {
@@ -1588,11 +1649,25 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
-              "label": "$host - $metric",
-              "metric_name": "disk-vda@disk_io_time-.*",
+              "fill": 0,
+              "label": "$host - $metric (read)",
+              "metric_name": "disk-(?!dm-).*@disk_io_time-0",
               "needed_overlap": 0,
               "queryMode": "resource_search",
               "refId": "A",
+              "resource_search": "host in [[server]]",
+              "resource_type": "collectd"
+            },
+            {
+              "aggregator": "mean",
+              "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
+              "label": "$host - $metric (write)",
+              "metric_name": "disk-(?!dm-).*@disk_io_time-1",
+              "needed_overlap": 0,
+              "queryMode": "resource_search",
+              "refId": "B",
               "resource_search": "host in [[server]]",
               "resource_type": "collectd"
             }
@@ -1638,7 +1713,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 22,
           "legend": {
@@ -1668,11 +1743,26 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
-              "label": "read",
-              "metric_name": "disk-vda1@disk_octets-.*",
+              "fill": 0,
+              "granularity": "",
+              "label": "$host - $metric - read",
+              "metric_name": "disk-(?!dm-).*@disk_octets-0",
               "needed_overlap": 0,
               "queryMode": "resource_search",
               "refId": "A",
+              "resource_search": "host in [[server]]",
+              "resource_type": "collectd"
+            },
+            {
+              "aggregator": "mean",
+              "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
+              "label": "$host - $metric - write",
+              "metric_name": "disk-(?!dm-).*@disk_octets-1",
+              "needed_overlap": 0,
+              "queryMode": "resource_search",
+              "refId": "B",
               "resource_search": "host in [[server]]",
               "resource_type": "collectd"
             }
@@ -1719,7 +1809,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "Gnocchi",
+          "datasource": "${DS_GNOCCHI}",
           "fill": 1,
           "id": 23,
           "legend": {
@@ -1749,11 +1839,25 @@
             {
               "aggregator": "mean",
               "draw_missing_datapoint_as_zero": true,
-              "label": "read",
-              "metric_name": "disk-vda1@disk_ops-.*",
+              "fill": 0,
+              "label": "$host - $metric (read)",
+              "metric_name": "disk-.*@disk_ops-0",
               "needed_overlap": 0,
               "queryMode": "resource_search",
               "refId": "A",
+              "resource_search": "host in [[server]]",
+              "resource_type": "collectd"
+            },
+            {
+              "aggregator": "mean",
+              "draw_missing_datapoint_as_zero": true,
+              "fill": 0,
+              "granularity": "",
+              "label": "$host - $metric (write)",
+              "metric_name": "disk-.*@disk_ops-1",
+              "needed_overlap": 0,
+              "queryMode": "resource_search",
+              "refId": "B",
               "resource_search": "host in [[server]]",
               "resource_type": "collectd"
             }
@@ -1805,17 +1909,16 @@
   ],
   "schemaVersion": 14,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "gnocchi",
+    "collectd"
+  ],
   "templating": {
     "list": [
       {
         "allValue": null,
-        "current": {
-            "selected": false,
-            "text": "",
-            "value": []
-        },
-        "datasource": "Gnocchi",
+        "current": {},
+        "datasource": "${DS_GNOCCHI}",
         "hide": 0,
         "includeAll": true,
         "label": "Server",
@@ -1864,7 +1967,6 @@
     ]
   },
   "timezone": "",
-  "title": "System Metrics",
-  "version": 5
-}
+  "title": "Collectd-Gnocchi system metrics",
+  "version": 14
 }
