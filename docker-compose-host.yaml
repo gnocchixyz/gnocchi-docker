@@ -1,0 +1,16 @@
+---
+version: "3"
+
+services:
+  fake-phy-host:
+    image: collectd
+    build:
+      context: collectd
+      args:
+        package_name: "${COLLECTD_GNOCCHI_PACKAGE_NAME:-collectd-gnocchi}"
+    environment:
+      COLLECTD_INTERVAL: 10
+    depends_on:
+      - gnocchi-api
+    links:
+      - "gnocchi-api:gnocchi"

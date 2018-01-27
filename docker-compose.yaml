@@ -1,3 +1,4 @@
+---
 version: "3"
 
 services:
@@ -47,7 +48,6 @@ services:
     environment:
       - GNOCCHI_RATE_SUPPORT
       - GRAFANA_PLUGIN_URL
-      # - GF_INSTALL_PLUGINS=gnocchixyz-gnocchi-datasource
       - GF_SECURITY_ADMIN_PASSWORD=password
       - GF_GNOCCHI_ENDPOINT=http://gnocchi:8041
     ports:
@@ -56,30 +56,6 @@ services:
       - gnocchi-api
     volumes:
       - grafana-volume:/var/lib/grafana
-    links:
-      - "gnocchi-api:gnocchi"
-
-  fake-phy-host:
-    image: collectd
-    build:
-      context: collectd
-      args:
-        package_name: "${COLLECTD_GNOCCHI_PACKAGE_NAME:-collectd-gnocchi}"
-    environment:
-      COLLECTD_INTERVAL: 10
-    depends_on:
-      - gnocchi-api
-    links:
-      - "gnocchi-api:gnocchi"
-
-  prom:
-    image: prometheus
-    build:
-      context: prometheus
-    depends_on:
-      - gnocchi-api
-    ports:
-      - "9090:9090"
     links:
       - "gnocchi-api:gnocchi"
 
