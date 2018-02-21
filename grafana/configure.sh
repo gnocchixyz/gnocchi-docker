@@ -27,6 +27,7 @@ echo '{"dashboard":' > /dashboard.json.mod
 sed -e 's/\${DS_GNOCCHI}/Gnocchi/g' /dashboard.json >> /dashboard.json.mod
 echo '}' >> /dashboard.json.mod
 curl -v -# \
+    -H "Expect:" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d @/dashboard.json.mod \
