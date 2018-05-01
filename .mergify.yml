@@ -1,1 +1,7 @@
 rules:
+  default:
+    protection:
+      required_status_checks:
+        strict: True
+        contexts:
+          - continuous-integration/travis-ci
