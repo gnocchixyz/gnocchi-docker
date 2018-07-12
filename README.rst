@@ -16,6 +16,7 @@ The compose instance is made of:
 
 To run it simply type::
 
+  $ ./build-base-images.sh # Build base images (only once)
   $ docker-compose up
 
 And it will start all those containers in the right order. Once started, you
@@ -27,7 +28,7 @@ Devel
 
 To run master branches of Gnocchi, collectd-gnocchi, grafana-gnocchi-datasource, run::
 
-  $ source devel.en
+  $ source devel.env
   $ ./build-base-images.sh # Build base images (only once)
   $ docker-compose build --no-cache --force-rm  # To force rebuild image from source
   $ docker-compose up
