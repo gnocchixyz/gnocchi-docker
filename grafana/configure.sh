@@ -24,7 +24,7 @@ curl -v -# \
 
 
 echo '{"dashboard":' > /tmp/dashboard.json.mod
-sed -e 's/\${DS_GNOCCHI}/Gnocchi/g' /dashboard.json >> /tmp/dashboard.json.mod
+sed -e 's/\${DS_GNOCCHI}/Gnocchi/g' /tmp/dashboard.json >> /tmp/dashboard.json.mod
 echo '}' >> /tmp/dashboard.json.mod
 curl -v -# \
     -H "Expect:" \
