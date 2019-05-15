@@ -1,7 +1,11 @@
-rules:
-  default:
-    protection:
-      required_status_checks:
-        strict: True
-        contexts:
-          - continuous-integration/travis-ci
+pull_request_rules:
+  - name: automatic merge
+    actions:
+      merge:
+        method: rebase
+        rebase_fallback: merge
+        strict: true
+    conditions:
+    - label!=work-in-progress
+    - "#approved-reviews-by>=1"
+    - status-success=continuous-integration/travis-ci/pr
