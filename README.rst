@@ -6,13 +6,15 @@ This repository contains Dockerfiles and a docker-compose scenario that can be
 used to build an image of `Gnocchi`_ latest version and run a small cluster of
 it.
 
-The compose instance is made of:
+Choose prometheus or collectd based on requirement from docker-compose-host.yaml/docker-compose-prom.yaml and append it to docker-compose.yaml.
 
-- A container running Gnocchi
+The compose instance is then made of:
+
+- Two containers running Gnocchi-api and Gnocchi-metricd
 - A container running PostgreSQL (indexer)
 - A container running Redis (storage)
 - A container running Grafana
-- A container running collectd
+- A container running collectd/prometheus
 
 To run it simply type::
 
